@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - RD TREINAMENTOS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .header {
+            position: absolute;
+            top: 10%;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            background-color: #0055ff;
+            padding: 15px 30px;
+            border-radius: 5px;
+        }
+
+        .login-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        .login-container h2 {
+            color: #0055ff;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0055ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Bem-vindo ao RD TREINAMENTOS</div>
+    
+    <div class="login-container">
+        <h2>Área de Login</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Digite seu nome de usuário" required>
+            <input type="password" id="password" placeholder="Digite sua senha" required>
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+
+    <div class="footer">© 2025 RD TREINAMENTOS. Todos os direitos reservados.</div>
+
+    <script>
+        // Função que valida o login
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();  // Evitar o envio do formulário (recarregar a página)
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Usuários e senhas de exemplo
+            const validUsers = [
+                { username: "usuario1", password: "senha123" },
+                { username: "usuario2", password: "senha456" }
+            ];
+
+            let isValid = false;
+
+            // Verifica se o usuário e a senha são válidos
+            validUsers.forEach(user => {
+                if (user.username === username && user.password === password) {
+                    isValid = true;
+                }
+            });
+
+            // Se o login for válido, redireciona para a área do aluno
+            if (isValid) {
+                window.location.href = "area-do-aluno.html";  // A página da área do aluno
+            } else {
+                alert("Usuário ou senha inválidos!");
+            }
+        });
+    </script>
+</body>
+</html>
